@@ -1,0 +1,10 @@
+[package]
+name = "avf-qr"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+dispatch2 = "0.3.0"
+objc2 = { version = "0.6.3", features = ["default", "catch-all"] }
+objc2-av-foundation = "0.3.2"
+objc2-foundation = "0.3.2"
