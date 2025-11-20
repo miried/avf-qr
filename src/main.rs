@@ -5,10 +5,12 @@ use delegate::Delegate;
 use dispatch2::{DispatchQueue, DispatchQueueAttr};
 use objc2::runtime::ProtocolObject;
 use objc2_av_foundation::*;
-use objc2_foundation::NSArray;
+use objc2_foundation::{NSArray, NSDate, NSRunLoop};
 
 #[expect(unsafe_op_in_unsafe_fn)]
 unsafe fn run_av_capture_session() {
+    let run_loop = NSRunLoop::currentRunLoop();
+
     //
     // Initialize capture device
     //
@@ -55,7 +57,8 @@ unsafe fn run_av_capture_session() {
     //   Run capture session
     //
     av_capture_session.startRunning();
-    std::thread::sleep(std::time::Duration::from_secs(1));
+    let stop_time = NSDate::now().dateByAddingTimeInterval(5.0);
+    run_loop.runUntilDate(&stop_time);
     av_capture_session.stopRunning();
 }
 
