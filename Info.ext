@@ -1,0 +1,2 @@
+  <key>NSCameraUsageDescription</key>
+  <string>Request camera access to scan for QR codes.</string>

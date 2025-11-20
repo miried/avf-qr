@@ -8,3 +8,6 @@ dispatch2 = "0.3.0"
 objc2 = { version = "0.6.3", features = ["default", "catch-all"] }
 objc2-av-foundation = "0.3.2"
 objc2-foundation = "0.3.2"
+
+[package.metadata.bundle]
+osx_info_plist_exts = ["Info.ext"]
