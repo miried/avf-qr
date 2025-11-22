@@ -5,9 +5,20 @@ edition = "2024"
 
 [dependencies]
 dispatch2 = "0.3.0"
-objc2 = { version = "0.6.3", features = ["default", "catch-all"] }
+env_logger = "0.11.8"
+log = "0.4.28"
+objc2 = "0.6.3"
 objc2-av-foundation = "0.3.2"
+objc2-core-media = "0.3.2"
 objc2-foundation = "0.3.2"
+objc2-core-image = { version = "0.3.2", optional = true }
+objc2-vision = { version = "0.3.2", optional = true }
+
+[features]
+default = ["vision"]
+core-image = ["dep:objc2-core-image"]
+vision = ["dep:objc2-vision"]
+catch-errors = ["objc2/catch-all"]
 
 [package.metadata.bundle]
 osx_info_plist_exts = ["Info.ext"]
